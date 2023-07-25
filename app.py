@@ -1,6 +1,8 @@
 import streamlit as st
 import pickle
 import pandas as pd
+
+
 teams=['Sunrisers Hyderabad',
  'Mumbai Indians',
  'Royal Challengers Bangalore',
@@ -9,6 +11,8 @@ teams=['Sunrisers Hyderabad',
  'Chennai Super Kings',
  'Rajasthan Royals',
  'Delhi Capitals']
+
+
 cities=['Hyderabad', 'Bangalore', 'Mumbai', 'Indore', 'Kolkata', 'Delhi',
        'Chandigarh', 'Jaipur', 'Chennai', 'Cape Town', 'Port Elizabeth',
        'Durban', 'Centurion', 'East London', 'Johannesburg', 'Kimberley',
@@ -16,8 +20,12 @@ cities=['Hyderabad', 'Bangalore', 'Mumbai', 'Indore', 'Kolkata', 'Delhi',
        'Visakhapatnam', 'Pune', 'Raipur', 'Ranchi', 'Abu Dhabi',
        'Sharjah', 'Mohali', 'Bengaluru']
 
+
+
+
+
 st.title('IPL Win Predictor')
-pipe=pickle.load(open('matchwinpredictormodel(pip).pkl','rb'))
+pipe=pickle.load(open('pkl_file/matchwinpredictormodel(pip).pkl','rb'))
 col1,col2 = st.columns(2)
 
 with col1:
@@ -35,6 +43,8 @@ with col3:
     score=st.number_input("Score")
 with col4:
     overs=st.number_input("Overs Completed")
+    if overs ==0:
+        overs=1
 with col5:
     wicket=st.number_input("Wickets Out")
 if st.button("Prdict Probaility"):

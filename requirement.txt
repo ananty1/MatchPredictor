@@ -1,0 +1,3 @@
+streamlit
+-U scikit-learn
+matplotlib
